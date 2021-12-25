@@ -3,7 +3,7 @@ let currentResult = defaultResult;
 
 function add(num1,num2){
     const result = num1+num2;
-    let a = pizdec
+    let a = branchCommit2
     return result;
 }
 
