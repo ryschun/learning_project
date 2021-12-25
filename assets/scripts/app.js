@@ -1,34 +1,21 @@
-const backdropElement = document.getElementById('backdrop');
-const modalLinkElements = document.querySelectorAll('.info-modal');
-let infoModal;
+const defaultResult = 0;
+let currentResult = defaultResult;
 
-function toggleBackdrop() {
-  backdropElement.classList.toggle('visible');
+function add(num1,num2){
+    const result = num1+num2; 
+    return result;
 }
 
-function presentInfoModal(event) {
-  const text = event.target.dataset.text;
-  toggleBackdrop();
-  infoModal = document.createElement('div');
-  infoModal.classList.add('modal');
-  infoModal.innerHTML = `
-    <h2>More Details</h2>
-    <p>${text}</p>
-  `;
-  const closeButton = document.createElement('button');
-  closeButton.addEventListener('click', hideInfoModal);
-  closeButton.textContent = 'Okay';
-  infoModal.appendChild(closeButton);
-  document.body.appendChild(infoModal);
-}
+currentResult = add(0,1);
 
-function hideInfoModal() {
-  toggleBackdrop();
-  document.body.removeChild(infoModal);
-}
 
-for (const linkElement of modalLinkElements) {
-  linkElement.addEventListener('click', presentInfoModal);
-}
+let calculationDescription = `(${defaultResult} +   10*3/2-1)`;
 
-backdropElement.addEventListener('click', hideInfoModal);
+let errorMassage = 'an error \n \n' + 'occured'; //ми юзаємо бек слеш щоб передати "особливий елемент який до стрінга не має відношення"
+// якщо ми пишемо \n тоді ми робимо переривання строки
+// let currentResult = 2
+// let calculationDescription = 2
+
+
+ outputResult(currentResult,errorMassage)
+
