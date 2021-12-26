@@ -1,22 +1,29 @@
 const defaultResult = 0;
 let currentResult = defaultResult;
 
-function add(num1,num2){
-    const result = num1+num2;
-    let a = branchCommit2
-    return result;
+function getUserNumberInput() {
+    return parseInt(usrInput.value)
 }
 
-currentResult = add(0,1);
+function add(){
+    const enteredNumber = getUserNumberInput();
+    const calcDescription = `${currentResult} + ${enteredNumber}`;
+    currentResult = currentResult  + enteredNumber;
+    outputResult(currentResult, calcDescription);
+}
+
+addBtn.addEventListener('click', add);
 
 
-let calculationDescription = `(${defaultResult} +   10*3/2-1)`;
 
-let errorMassage = 'an error \n \n' + 'occured'; //ми юзаємо бек слеш щоб передати "особливий елемент який до стрінга не має відношення"
+
+ 
+
+
+
+ // let errorMassage = 'an error \n \n' + 'occured'; //ми юзаємо бек слеш щоб передати "особливий елемент який до стрінга не має відношення"
 // якщо ми пишемо \n тоді ми робимо переривання строки
 // let currentResult = 2
 // let calculationDescription = 2
-
-
- outputResult(currentResult,errorMassage)
-
+// parsStr або parsInt переторює в текст або число
+// currentResult = currentResult + +userInput.value можна да плюси написати і воно конкертне його також в цифру 
