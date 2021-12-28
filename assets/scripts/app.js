@@ -3,6 +3,7 @@ let currentResult = defaultResult;
 let logEntries = [];
 
 
+
 function getUserNumberInput() {
     return parseInt(usrInput.value)
 }
@@ -18,9 +19,9 @@ function createAndWriteOutput(operator, resultBeforeCalc, calcNumber) {
 }
 
 function whriteToLog(
-    operationalIdentifier, 
-    prevResult, 
-    operationNumber, 
+    operationalIdentifier,
+    prevResult,
+    operationNumber,
     newResult
 ) {
     const logEntry = {
@@ -33,22 +34,28 @@ function whriteToLog(
     console.log(logEntries);
 }
 
-function add() {
+function calculateResult(calculationType) {
     const enteredNumber = getUserNumberInput();
     const initialResult = currentResult;
-    currentResult += enteredNumber;
-    createAndWriteOutput('+', initialResult, enteredNumber);
-    whriteToLog('ADD', initialResult, enteredNumber, currentResult);
-    setInputField(currentResult)
-    
+    let mathOperator;
+    if (calculationType === 'ADD') {
+        currentResult += enteredNumber;
+        mathOperator = '+';
+    } else {
+        currentResult -= enteredNumber;
+        mathOperator = '-';
+    }
+    createAndWriteOutput(mathOperator, initialResult, enteredNumber);
+    whriteToLog(calculationType, initialResult, enteredNumber, currentResult);
+    setInputField(currentResult);
+}
+
+function add() {
+    calculateResult('ADD');
 }
 
 function subtract() {
-    const enteredNumber = getUserNumberInput();
-    const initialResult = currentResult;
-    currentResult -= enteredNumber;
-    createAndWriteOutput('-', initialResult, enteredNumber)
-    whriteToLog('SUBTRACT', initialResult, enteredNumber, currentResult)
+    calculateResult('SUBTRACT');
 }
 function multiply() {
     const enteredNumber = getUserNumberInput();
