@@ -18,7 +18,7 @@ function add(){
     currentResult += enteredNumber;
     createAndWriteOutput('+', initialResult, enteredNumber);
     const logEntry = {
-        operation: 'ADD',
+        operation: 'ADD1',
         prevResult: initialResult,
         number: enteredNumber,
         result: currentResult
