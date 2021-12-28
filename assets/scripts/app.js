@@ -7,8 +7,7 @@ function getUserNumberInput() {
     return parseInt(usrInput.value)
 }
 
-function getUserNumberInput(changedInpField) {//я пробую
-    const changedInpField = 2
+function setInputField(changedInpField) {//я пробую
     usrInput.value = changedInpField
 
 }
@@ -40,7 +39,7 @@ function add() {
     currentResult += enteredNumber;
     createAndWriteOutput('+', initialResult, enteredNumber);
     whriteToLog('ADD', initialResult, enteredNumber, currentResult);
-    // getUserNumberInput(currentResult)
+    setInputField(currentResult)
     
 }
 
