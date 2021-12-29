@@ -34,12 +34,7 @@ function whriteToLog(
 function calculateResult(calculationType) {
     const enteredNumber = getUserNumberInput();
     const initialResult = currentResult;
-<<<<<<< HEAD
-    currentResult += enteredNumber;
-    createAndWriteOutput('+', initialResult, enteredNumber);
-    whriteToLog('ADD', initialResult, enteredNumber, currentResult);
 
-=======
     let mathOperator;
     if (calculationType === 'ADD') {
         currentResult += enteredNumber;
@@ -55,7 +50,6 @@ function calculateResult(calculationType) {
 
 function add() {
     calculateResult('ADD');
->>>>>>> fbbaa9df42c8058a8187ad9882025f2ca9449722
 }
 
 function subtract() {
