@@ -1,3 +1,4 @@
+
 const defaultResult = 0;
 let currentResult = defaultResult;
 let logEntries = [];
@@ -7,10 +8,6 @@ function getUserNumberInput() {
     return parseInt(usrInput.value)
 }
 
-function setInputField(changedInpField) {//я пробую
-    usrInput.value = changedInpField
-
-}
 
 function createAndWriteOutput(operator, resultBeforeCalc, calcNumber) {
     const calcDescription = `${resultBeforeCalc}  ${operator}  ${calcNumber}`;
@@ -18,9 +15,9 @@ function createAndWriteOutput(operator, resultBeforeCalc, calcNumber) {
 }
 
 function whriteToLog(
-    operationalIdentifier, 
-    prevResult, 
-    operationNumber, 
+    operationalIdentifier,
+    prevResult,
+    operationNumber,
     newResult
 ) {
     const logEntry = {
@@ -39,8 +36,7 @@ function add() {
     currentResult += enteredNumber;
     createAndWriteOutput('+', initialResult, enteredNumber);
     whriteToLog('ADD', initialResult, enteredNumber, currentResult);
-    setInputField(currentResult)
-    
+
 }
 
 function subtract() {
