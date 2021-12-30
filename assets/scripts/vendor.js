@@ -26,8 +26,8 @@ function dealPlayerDamage(damage) {
   return dealtDamage;
 }
 
-function increasePlayerHealth(healValue) {
-  playerHealthBar.value = +playerHealthBar.value + healValue;
+function increasePlayerHealth(heal) {  
+  playerHealthBar.value = +playerHealthBar.value + heal;
 }
 
 function resetGame(value) {
