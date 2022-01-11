@@ -72,10 +72,10 @@ function divide() {
     calculateResult('DIVIDE');
 }
 
-addBtn.addEventListener('click', add);
-subtractBtn.addEventListener('click', subtract);
-multiplyBtn.addEventListener('click', multiply);
-divideBtn.addEventListener('click', divide);
+addBtn.addEventListener('click', calculateResult.bind(this,'ADD'));
+subtractBtn.addEventListener('click', calculateResult.bind(this,'SUBTRACT'));
+multiplyBtn.addEventListener('click', calculateResult.bind(this,'MULTIPLY'));
+divideBtn.addEventListener('click', calculateResult.bind(this,'DIVIDE'));
 
 // let errorMassage = 'an error \n \n' + 'occured'; //ми юзаємо бек слеш щоб передати "особливий елемент який до стрінга не має відношення"
 // якщо ми пишемо \n тоді ми робимо переривання строки
