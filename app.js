@@ -73,12 +73,12 @@ startGameBtn.addEventListener('click', () => {
     const playerChoice = getPlayerChoice();
     const ComputerChoice = getComputerChoice();
     let winner;
-    if (playerChoice){
+    if (playerChoice) {
         winner = getWinner(ComputerChoice, playerChoice);
     } else {
         winner = getWinner(ComputerChoice, playerChoice); // він буде не визначенний. передасться в функцію, де другий аргумент заданий за замовчуванням. Відповідно якщо передається undefined - то воно перетворбє його на значення за замовчуванням. якби не написали нічого був би той самий ефект. тобто передали би лише один аргумент. ПЕРЕДАЄТЬСЯ ЛИШЕ В JS І ЛИШЕ В ПЕРШИЙ ПАРАМЕТР
     }
-    
+
     let message = `You picked ${playerChoice || DEFAULT_USER_CHOICE}, computer picked ${ComputerChoice}, therefore `;
     if (winner === RESULT_DRAW) {
         message = message + 'you had a draw.';
@@ -93,29 +93,51 @@ startGameBtn.addEventListener('click', () => {
 
 
 // not related to the game
-const sumUp = (...numbers) => { // це називається рест оператором. і він завжди має бути останній в листі
+const combine = (resultHandler, operation, ...numbers) => { // це називається рест оператором. і він завжди має бути останній в листі
     const validateNumber = (number) => {
-        console.log('Number before validation: ',number);
-        
         return isNaN(number) ? 0 : number;
     };
-    let sum = 0;
-    for (const num of numbers){
-        // console.log('Validate number:',validateNumber(num));      
-        sum += validateNumber(num); 
-        console.log(sum);
-    }
-    return sum;
 
+    let sum = 0;
+    for (const num of numbers) {
+        if (мoperation ==='ADD'){
+        sum += validateNumber(num);
+        } else {
+            sum -= validateNumber(num);
+        }    
+    } 
+    resultHandler(sum);
 }
 
-const subtractUp = function(){
-    let sum = 0;
-    for (const num of arguments){ // аргументи це специфічне keyword яке утворюються в дужках параметрів функції якщо ти використовуєш слово function. НЕ ВИКОРИСТОВУВАТИ ЦЕ!!!!
-        sum -= num; 
-    }
-    return sum;
-}
-console.log(sumUp(1,2,'awfoaswofoawfbna',0,0,0,0));
-// console.log(sumUp(1,5,10,-3,6,8,8,50));
+const showResult = (result, messageText) => {
+    alert(messageText + ' ' + result);
+};
+combine(showResult.bind(this, 'The result after adding all numbers is: '), 'ADD', 5, 0, 0, 0, 0);
+combine(showResult.bind(this, 'The result after substracting all numbers is: '),'SUBTRACT', 4, 0, 0, 0);
+
+
+
+
+
+
+// const subtractUp = function(resultHandler, ...numbers){
+//     let sum = 0;
+//     for (const num of numbers){ // аргументи це специфічне keyword яке утворюються в дужках параметрів функції якщо ти використовуєш слово function. НЕ ВИКОРИСТОВУВАТИ ЦЕ!!!!
+//         sum -= num;
+//     }
+//     resultHandler(sum);
+// }
+
+
+// (resultHandler,showresult)
+// sum = 0
+// sum += showresult
+
+
+
+
+
+
+// sumUp(showResult,5,10,-3,6,8,8,50);
+// console.log(showResult);
 // console.log(subtractUp(1,3,8,10));
